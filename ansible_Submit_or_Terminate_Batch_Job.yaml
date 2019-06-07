@@ -1,0 +1,21 @@
+- hosts: localhost
+  gather_facts: no
+  vars:
+    job_id:
+    state: submit
+    job_queue_name: JQ_test
+    region: ap-southeast-2
+    job_definition: TestDefinition
+    job_name: JobDemo
+  tasks:
+  - name: Test that my change_version module works
+    aws_batch_submit_or_terminate_job: 
+      job_name: "{{job_name}}"
+      job_queue_name: "{{job_queue_name}}"  
+      region: "{{region}}"
+      state: "{{state}}"
+      job_definition: "{{job_definition}}"
+      job_id: "{{job_id}}"
+    register: result
+
+  - debug: var=result  
