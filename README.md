@@ -5,6 +5,7 @@
  4) "pip3 install ansible" which should have the library (ansible.module_utils.basic) required.
  
  ============ Submit Job============================
+ 
  $ansible-playbook ansible_Submit_or_Terminate_Batch_Job.yaml -e '{"job_queue_name":"first-run-job-queue"}' -e '{"job_name":"myJob"}'
  [WARNING]: Unable to parse /etc/ansible/hosts as an inventory source
 
@@ -39,6 +40,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 
 
 ============== Terminate Job =======================
+
 
 $ ansible-playbook ansible_Submit_or_Terminate_Batch_Job.yaml -e '{"state":"terminate"}' -e '{"job_id":"ffd2a0a5-bc04-4886-b3fe-5d5eaeddcd1"}'
  [WARNING]: Unable to parse /etc/ansible/hosts as an inventory source
